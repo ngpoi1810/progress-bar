@@ -18,7 +18,7 @@
         left: 0;
         right: 0;
         background: transparent;
-       
+
         height: 10px;
         width: 100%;
       }
@@ -123,9 +123,22 @@
       </p>
     </div>
 
-
     <script>
-        
+        const valueElm = document.querySelector('.value');
+
+      document.addEventListener("scroll", () => {
+        const scrollTop =
+          document.body.scrollTop || document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+
+        const percentTage = Math.floor(
+          (scrollTop / (scrollHeight - clientHeight)) * 100
+        );
+
+        valueElm.style.width = percentTage + '%';
+        console.log(percentTage);
+      });
     </script>
   </body>
 </html>
